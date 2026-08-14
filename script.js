@@ -70,5 +70,62 @@ function handleSubmit(e) {
   }, 3000);
 }
 
+// === Slideshow ===
+function initSlideshow() {
+  const container = document.querySelector('.slideshow-container');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('.slide');
+  const dotsContainer = container.querySelector('.slide-dots');
+  const counter = container.querySelector('.slide-counter');
+  const prevBtn = container.querySelector('.slide-prev');
+  const nextBtn = container.querySelector('.slide-next');
+  let current = 0;
+  let autoTimer;
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('slide-dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    resetAuto();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Swipe support
+  let startX = 0;
+  container.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+  container.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goTo(current - 1);
+      else goTo(current + 1);
+    }
+  });
+
+  // Auto-advance every 5 seconds
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 5000);
+  }
+  resetAuto();
+}
+
 // === Init ===
-document.addEventListener('DOMContentLoaded', createSparkles);
+document.addEventListener('DOMContentLoaded', () => {
+  createSparkles();
+  initSlideshow();
+});
