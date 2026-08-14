@@ -187,7 +187,8 @@
         <input type="email" name="email" placeholder="Your Email" required>
         <input type="tel" name="phone" placeholder="Phone (optional)">
       </div>
-      <select name="service" required>
+      <div class="form-row">
+        <select name="service" required>
         <option value="" disabled selected>What are you looking for?</option>
         <option>Travel / Trip Planning</option>
         <option>Event Coordination</option>
@@ -195,6 +196,13 @@
         <option>Web Design / Custom Tool</option>
         <option>Something Else</option>
       </select>
+      <select name="contact_preference">
+        <option value="" disabled selected>Preferred contact method?</option>
+        <option>Email</option>
+        <option>Text</option>
+        <option>Either works</option>
+      </select>
+      </div>
       <textarea name="message" placeholder="Tell me a bit about what you need..." rows="4"></textarea>
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
