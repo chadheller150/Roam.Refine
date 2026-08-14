@@ -160,6 +160,11 @@ body {
 
 /* === ABOUT === */
 .about-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start; }
+.about-photo-wrapper { margin-bottom: 24px; }
+.about-photo {
+  width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--accent); box-shadow: 0 8px 30px rgba(27, 153, 139, 0.2);
+}
 .about-lead { font-family: 'Syne', sans-serif; font-size: 1.3em; color: var(--text); font-weight: 700; margin-bottom: 16px; }
 .about-text p { color: var(--text-dim); margin-bottom: 16px; font-size: 0.95em; }
 .about-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
