@@ -3,7 +3,7 @@ function createSparkles() {
   const container = document.querySelector('.sparkle-container');
   if (!container) return;
   const colors = ['#1b998b', '#b8b8ff', '#ff6b6b', '#1b998b', '#b8b8ff', '#5ce6d6'];
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 35; i++) {
     const sparkle = document.createElement('div');
     sparkle.classList.add('sparkle');
     const color = colors[Math.floor(Math.random() * colors.length)];
@@ -12,7 +12,7 @@ function createSparkles() {
     sparkle.style.left = Math.random() * 100 + '%';
     sparkle.style.animationDelay = Math.random() * 6 + 's';
     sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-    const size = Math.random() * 4 + 2;
+    const size = Math.random() * 5 + 3;
     sparkle.style.width = size + 'px';
     sparkle.style.height = size + 'px';
     container.appendChild(sparkle);
