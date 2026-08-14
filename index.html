@@ -181,12 +181,12 @@
   <section id="contact" class="section section-dark">
     <h2 class="section-title">Let's Work Together</h2>
     <p class="contact-lead">Planning a trip? Need a custom tool? Want styling help for your new place? Let's chat.</p>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" action="https://formspree.io/f/xwleqwwq" method="POST">
       <div class="form-row">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
       </div>
-      <select required>
+      <select name="service" required>
         <option value="" disabled selected>What are you looking for?</option>
         <option>Travel / Trip Planning</option>
         <option>Event Coordination</option>
@@ -194,7 +194,7 @@
         <option>Web Design / Custom Tool</option>
         <option>Something Else</option>
       </select>
-      <textarea placeholder="Tell me a bit about what you need..." rows="4"></textarea>
+      <textarea name="message" placeholder="Tell me a bit about what you need..." rows="4"></textarea>
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
   </section>
